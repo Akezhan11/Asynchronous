@@ -1,5 +1,5 @@
 import java.time.Year;
-public class VideoLecture extends ContentItem {
+public class VideoLecture extends ContentItem implements Downloadable{
     private String quality;
 
     public VideoLecture(String title, int year, int durationMinutes, String quality) {
@@ -39,5 +39,15 @@ public class VideoLecture extends ContentItem {
                 "year: " + getYear() + "\n" +
                 "Minutes duration: " + getDurationMinutes()
                 + "\n" + "quality:" + getQuality();
+    }
+
+    @Override
+    public void download() {
+        System.out.println("Downloading Video in " + quality);
+    }
+
+    @Override
+    public int getMaxDownloadsPerDay() {
+        return 3;
     }
 }
